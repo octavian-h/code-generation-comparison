@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import ro.hasna.tutorials.code_generation_comparison.util.Constants;
 
 @AllArgsConstructor(staticName = "of")
 @RequiredArgsConstructor
@@ -16,6 +17,10 @@ import lombok.ToString;
 public class LombokSecondEntity {
 
     private String name;
-    @ToString.Exclude
-    private int age;
+    private String secret;
+
+    @ToString.Include(name = "secret")
+    private String maskSecret() {
+        return Constants.MASK_PATTERN;
+    }
 }

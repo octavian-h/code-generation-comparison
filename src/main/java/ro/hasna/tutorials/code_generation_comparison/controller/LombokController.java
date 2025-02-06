@@ -42,10 +42,10 @@ public class LombokController {
         return "Test Lombok default: " + entity;
     }
 
-    @GetMapping("/test-hide")
-    public String getTestHide() {
-        LombokSecondEntity entity = LombokSecondEntity.of(Constants.NAME, Constants.AGE);
-        log.info("hidden value: {}", entity.getAge());
-        return "Test Lombok hide: " + entity;
+    @GetMapping("/test-mask")
+    public String getTestMask() {
+        LombokSecondEntity entity = LombokSecondEntity.of(Constants.NAME, Constants.SECRET);
+        log.info("masked value: {}", entity.getSecret());
+        return "Test Lombok mask: " + entity + " and the secret value is: " + entity.getSecret();
     }
 }
